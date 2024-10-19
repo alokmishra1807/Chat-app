@@ -2,6 +2,8 @@ import mongoose from "mongoose"; // Import mongoose to use ObjectId
 import Conversation from "../Models/conversation.modal.js";
 import Message from "../Models/message.modal.js";
 
+
+import { getReceiverSocketId, io } from "../Soket/soket.js";
 export const sendMessages = async (req, res) => {
   try {
     const { message } = req.body;
@@ -34,6 +36,13 @@ export const sendMessages = async (req, res) => {
     }
 
     await Promise.all([conversation.save(), newMessage.save()]);
+
+
+const receiverSocketId = getReceiverSocketId(recieverId);
+if(receiverSocketId){
+  io.to(receiverSocketId).emit("newMessage",newMessage);
+}
+
 
     res.status(201).json(newMessage);
   } catch (error) {

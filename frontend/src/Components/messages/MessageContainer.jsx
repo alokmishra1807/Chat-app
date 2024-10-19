@@ -34,7 +34,7 @@ const MessageContainer = () => {
 };
 
 const NoChatSelected = () => {
-    const authUser = { fullName: "User" }; // Replace with your actual auth user logic
+    const authUser = { fullName: "User" }; 
 
     return (
         <div className='flex items-center justify-center w-full h-full'>

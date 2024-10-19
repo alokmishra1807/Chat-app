@@ -25,7 +25,7 @@ const useLogin = () => {
         const data = await res.json();
 
         // Log the response to verify the structure
-        console.log('Server Response:', data);
+       // console.log('Server Response:', data);
 
         // Check if login was successful by verifying the existence of _id or other required fields
         if (data._id) {

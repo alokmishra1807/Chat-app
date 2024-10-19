@@ -7,7 +7,8 @@ import userRoutes from './routes/user.routes.js'
 
 import connectToMongoose from "./db/connectToMongoose.js";
 import cookieparser from 'cookie-parser'
-const app = express();
+
+import { app, server } from "./Soket/soket.js";
 
 dotenv.config();
 
@@ -20,8 +21,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/message", messageRoutes);
 app.use("/api/user", userRoutes);
 
-connectToMongoose();
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
+    connectToMongoose();
     console.log(`Server running on port ${PORT}`);
 });

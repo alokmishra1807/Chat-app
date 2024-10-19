@@ -4,9 +4,12 @@ import Message from "./Message";
 
 import useGetMessages from "../../Hooks/useGetMessages";
 import MessageSkeleton from "../Skeleton/messageSkeleton";
+import useListenMessages from "../../Hooks/useListenMessages";
 
 const Messages = () => {
 	const { messages, loading } = useGetMessages();
+
+	useListenMessages()
 	//console.log(messages)
 	// useListenMessages();
 	const lastMessageRef = useRef();
