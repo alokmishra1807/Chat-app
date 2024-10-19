@@ -1,4 +1,4 @@
-import useGetConversations from "../../hooks/useGetConversations";
+import useGetConversations from "../../Hooks/useGetConversations";
 import { getRandomEmoji } from "../../utils/emojis";
 
 import Conversation from "./Conversation";
