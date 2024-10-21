@@ -10,7 +10,7 @@ const Sidebar = () => {
   return (
     <div
       className={`border-r border-slate-500 p-4 flex flex-col 
-      ${selectedConversation ? 'hidden sm:flex' : 'flex'}`}  // Hide on small screens if a conversation is selected
+      ${selectedConversation ? 'hidden sm:flex' : 'flex'}`} // Hide sidebar on small screens if conversation is selected
     >
       <Search />
       <div className='divider px-3'></div>

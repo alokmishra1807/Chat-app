@@ -17,7 +17,12 @@ const MessageContainer = () => {
       ${selectedConversation ? 'block' : 'hidden sm:block'}`}  // Show MessageContainer on small screens only when a conversation is selected
     >
       {!selectedConversation ? (
-        <NoChatSelected />
+        <>
+          {/* Show NoChatSelected only on medium and larger screens */}
+          <div className="hidden md:block">
+            <NoChatSelected />
+          </div>
+        </>
       ) : (
         <>
           {/* Header */}
