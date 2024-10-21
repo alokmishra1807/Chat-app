@@ -4,7 +4,6 @@ import MessageInput from "./MessageInput";
 import Messages from "./Messages";
 import { TiMessages } from "react-icons/ti";
 import { IoBackspaceSharp } from "react-icons/io5";
-
 const MessageContainer = () => {
     const { selectedConversation, setSelectedConversation } = useConversation();
   
@@ -26,7 +25,7 @@ const MessageContainer = () => {
             </div>
   
             {/* Messages */}
-            <div className="flex-grow overflow-y-auto">
+            <div className="flex-grow overflow-y-auto flex flex-col-reverse">
               <Messages />
             </div>
   
