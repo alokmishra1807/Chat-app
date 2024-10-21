@@ -24,8 +24,7 @@ const MessageContainer = () => {
         <>
           {/* Header */}
           <div className="bg-slate-500 px-4 py-2 flex items-center justify-between mb-2">
-            <span className="label-text">To:</span>{" "}
-            <span className="text-gray-900 font-bold">
+                   <span className="text-gray-900 font-bold">
               {selectedConversation.fullName}
             </span>
             <div><IoBackspaceSharp className='w-6 h-6 text-white cursor-pointer' onClick={() => setSelectedConversation(null)} /></div>
