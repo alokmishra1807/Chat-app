@@ -5,7 +5,7 @@ import useConversation from "../../Zustand/useConversation"; // Import Zustand h
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const { selectedConversation, setSelectedConversation } = useConversation(); // Get the selected conversation from Zustand
+  const { selectedConversation } = useConversation(); // Get the selected conversation from Zustand
 
   // Check for screen size
   useEffect(() => {
@@ -23,25 +23,16 @@ const Home = () => {
 
   return (
     <div
-      className={`flex flex-col sm:h-screen sm:w-screen p-2 sm:p-4 bg-gray-400 rounded-lg ${
-        isMobile ? "overflow-auto" : "overflow-hidden"
-      }`}
-      style={{ padding: "10px" }} // Add padding for small screens
+      className={`flex flex-col md:flex-row sm:h-[450px] md:h-[550px] rounded-lg overflow-hidden bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0
+      ${isMobile ? "p-2.5 h-[calc(100vh-20px)]" : ""}   
+      `}
     >
       {isMobile ? (
         // Mobile view: show only one component at a time
         <>
           {selectedConversation ? (
-            // If a conversation is selected, show the MessageContainer with a Back button
-            <>
-              <button
-                onClick={() => setSelectedConversation(null)} // Set selectedConversation to null on Back
-                className="text-white bg-blue-500 p-2 rounded mb-4"
-              >
-                Back
-              </button>
-              <MessageContainer />
-            </>
+            // If a conversation is selected, show the MessageContainer
+            <MessageContainer />
           ) : (
             // If no conversation is selected, show the Sidebar
             <Sidebar />
