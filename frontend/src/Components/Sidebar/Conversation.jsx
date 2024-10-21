@@ -16,7 +16,7 @@ const Conversation = ({ conversation, lastIdx, emoji }) => {
       <div
         className={`flex gap-2 items-center hover:bg-sky-500 rounded p-2 py-1 cursor-pointer 
           ${isSelected ? 'bg-sky-500' : ''} 
-          ${selectedConversation && !isSelected ? 'hidden sm:flex' : 'flex'}`} // Show only selected conversation on small screens
+          ${selectedConversation && !isSelected ? 'hidden sm:flex' : 'flex'}`}  // Hide non-selected conversations on small screens
         onClick={() => {
           setSelectedConversation(conversation);
         }}
