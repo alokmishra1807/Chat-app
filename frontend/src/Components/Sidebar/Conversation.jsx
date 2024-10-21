@@ -1,6 +1,7 @@
 import React from 'react'
-import useConversation from '../../Zustand/useConversation';
+
 import { useSocketContext } from '../../context/soketContext';
+import useConversation from '../../zustand/useConversation';
 const Conversation = ({conversation,lastIdx,emoji}) => {
 const {onlineUsers} = useSocketContext();
 

@@ -16,15 +16,15 @@ const handleLogin = async (e)=>{
 
 }
 	return (
-		<div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
-			<div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0'>
+		<div className='flex flex-col w-96 items-center justify-center  mx-auto'>
+			<div className='min-w-full w-[calc(100vh-px)] sm:w-auto  h-[calc(100vh-px)] sm:h-auto p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0'>
 				<h1 className='text-3xl font-semibold text-center text-gray-300'>
 					Login
 					<span className='text-black'> ChatApp</span>
 				</h1>
 
 				<form onSubmit={handleLogin}>
-					<div>
+					<div className='2'>
 						<label className='label p-2'>
 							<span className='text-base  label-text'>Username</span>
 						</label>
