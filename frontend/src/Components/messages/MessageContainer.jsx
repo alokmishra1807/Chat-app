@@ -13,9 +13,8 @@ const MessageContainer = () => {
 
   return (
     <div
-      className={`md:min-w-[450px] flex flex-col 
-        ${!selectedConversation ? 'hidden sm:flex' : 'flex'} 
-      `}
+      className={`md:min-w-[450px] flex flex-col w-full 
+      ${selectedConversation ? 'block' : 'hidden sm:block'}`}  // Show MessageContainer on small screens only when a conversation is selected
     >
       {!selectedConversation ? (
         <NoChatSelected />
