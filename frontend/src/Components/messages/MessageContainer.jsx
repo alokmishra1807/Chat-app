@@ -13,25 +13,31 @@ const MessageContainer = () => {
   }, [setSelectedConversation]);
 
   return (
-    <div
-      className={`md:min-w-[450px] flex flex-col 
-        ${!selectedConversation ? 'hidden sm:flex' : 'flex'} 
-      `}
-    >
+    <div className="flex flex-col h-full w-full md:min-w-[450px]">
       {!selectedConversation ? (
         <NoChatSelected />
       ) : (
         <>
-          {/* Header */}
+        
           <div className="bg-slate-500 px-4 py-2 flex items-center justify-between mb-2">
-                   <span className="text-gray-900 font-bold">
+            <span className="text-gray-900 font-bold">
               {selectedConversation.fullName}
             </span>
-            <div><IoBackspaceSharp className='w-6 h-6 text-white cursor-pointer' onClick={() => setSelectedConversation(null)} /></div>
+            <IoBackspaceSharp
+              className="w-6 h-6 text-white cursor-pointer"
+              onClick={() => setSelectedConversation(null)}
+            />
           </div>
 
-          <Messages />
-          <MessageInput />
+    
+          <div className="flex-grow overflow-y-auto">
+            <Messages />
+          </div>
+
+         
+          <div className="mt-2">
+            <MessageInput />
+          </div>
         </>
       )}
     </div>
