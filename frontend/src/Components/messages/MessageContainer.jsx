@@ -13,16 +13,12 @@ const MessageContainer = () => {
 
   return (
     <div
-      className={`md:min-w-[450px] flex flex-col w-full 
-      ${selectedConversation ? 'block' : 'hidden sm:block'}`}  // Show MessageContainer on small screens only when a conversation is selected
+      className={`md:min-w-[450px] flex flex-col 
+        ${!selectedConversation ? 'hidden sm:flex' : 'flex'} 
+      `}
     >
       {!selectedConversation ? (
-        <>
-          {/* Show NoChatSelected only on medium and larger screens */}
-          <div className="hidden md:block">
-            <NoChatSelected />
-          </div>
-        </>
+        <NoChatSelected />
       ) : (
         <>
           {/* Header */}
@@ -46,7 +42,7 @@ const NoChatSelected = () => {
 
   return (
     <div className="flex items-center justify-center w-full h-full">
-      <div className="px-4 text-center sm:text-lg md:text-xl text-gray-200 font-semibold flex flex-col items-center justify-center gap-2">
+      <div className="px-4 text-center sm:text-lg md:text-xl text-gray-200 font-semibold flex flex-col items-center gap-2">
         <p>Welcome 👋 {authUser.fullName} ❄</p>
         <p>Select a chat to start messaging</p>
         <TiMessages className="text-3xl md:text-6xl text-center" />
