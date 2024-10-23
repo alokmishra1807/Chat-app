@@ -2,70 +2,53 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import useLogin from '../../Hooks/useLogin';
 
-
 const Login = () => {
+  const {loading, login} = useLogin();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-const {loading,login} = useLogin();
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    await login({username, password});
+  };
 
-const [username, setUsername] = useState("")
-const [password, setPassword] = useState("")
+  return (
+    <div className='flex flex-col w-full sm:w-96 items-center justify-center mx-auto p-4'>
+      <div className='min-w-full w-[calc(100vh-px)] sm:w-auto p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0'>
+        <h1 className='text-3xl font-semibold text-center text-gray-300'>
+          Login <span className='text-black'>ChatApp</span>
+        </h1>
 
-const handleLogin = async (e)=>{
-	e.preventDefault();
- await login({username,password})
+        <form onSubmit={handleLogin}>
+          <div className='mb-4'>
+            <label className='label p-2'>
+              <span className='text-base label-text'>Username</span>
+            </label>
+            <input type='text' placeholder='Enter username' className='w-full input input-bordered h-10'
+              value={username} onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
 
-}
-	return (
-		<div className='flex flex-col w-96 items-center justify-center  mx-auto'>
-			<div className='min-w-full w-[calc(100vh-px)] sm:w-auto  h-[calc(100vh-px)] sm:h-auto p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0'>
-				<h1 className='text-3xl font-semibold text-center text-gray-300'>
-					Login
-					<span className='text-black'> ChatApp</span>
-				</h1>
+          <div className='mb-4'>
+            <label className='label'>
+              <span className='text-base label-text'>Password</span>
+            </label>
+            <input type='password' placeholder='Enter Password' className='w-full input input-bordered h-10'
+              value={password} onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
 
-				<form onSubmit={handleLogin}>
-					<div className='2'>
-						<label className='label p-2'>
-							<span className='text-base  label-text'>Username</span>
-						</label>
-						<input type='text' placeholder='Enter username' className='w-full input input-bordered h-10'
-						value={username}
-						onChange={(e)=>setUsername(e.target.value)}
-						/>
-					</div>
+          <Link to="/signup" className='text-sm text-black font-semibold hover:underline hover:font-bold mt-2 inline-block'>
+            Don't have an account? 
+          </Link>
 
-					<div>
-						<label className='label'>
-							<span className='text-base label-text'>Password</span>
-						</label>
-						<input
-							type='password'
-							placeholder='Enter Password'
-							className='w-full input input-bordered h-10'
-							value={password}
-							onChange={(e)=>setPassword(e.target.value)}
-						/>
-					</div>
-		<Link to ={"/signup"} className='text-sm text-black font-semibold hover:underline hover:font-bold mt-2 inline-block'>
-						{"Don't"} have an account? </Link>
-					
-
-					<div>
-					<button className='btn btn-block btn-sm mt-2 border border-slate-700' disabled={loading}>
-							{
-          loading? <span className='loading loading-spinner'></span>: "Login"
-							}
-							
-							
-							</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	);
+          <button className='btn btn-block btn-sm mt-4 border border-slate-700' disabled={loading}>
+            {loading ? <span className='loading loading-spinner'></span> : "Login"}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 }
 
-export default Login
-
-
-
+export default Login;

@@ -1,21 +1,20 @@
-import { useEffect } from "react";
+import React from "react";
 import useConversation from "../../Zustand/useConversation";
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
-import { TiMessages } from "react-icons/ti";
 import { IoBackspaceSharp } from "react-icons/io5";
 
 const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
 
   return (
-    <div className="flex flex-col h-full w-full min-w-[350px] sm:min-w-[300px]">
+    <div className="flex flex-col h-full w-full sm:min-w-[300px]">
       {!selectedConversation ? (
         <NoChatSelected />
       ) : (
         <>
           {/* Header */}
-          <div className="bg-slate-500 px-4 py-2 flex items-center justify-between mb-2">
+          <div className="bg-slate-500 px-4 py-2 flex items-center justify-between">
             <span className="text-gray-900 font-bold">
               {selectedConversation.fullName}
             </span>
@@ -26,8 +25,7 @@ const MessageContainer = () => {
           </div>
 
           {/* Messages */}
-          <div className="flex-grow overflow-y-auto h-[calc(100vh-180px)] sm:h-auto">
-           
+          <div className="flex-grow overflow-y-auto">
             <Messages />
           </div>
 
@@ -46,10 +44,9 @@ const NoChatSelected = () => {
 
   return (
     <div className="flex items-center justify-center w-full h-full">
-      <div className="px-4 text-center text-lg text-gray-200 font-semibold flex flex-col items-center gap-2">
-        <p>Welcome 👋 {authUser.fullName} ❄</p>
+      <div className="px-4 text-center text-lg text-gray-200 font-semibold">
+        <p>Welcome 👋 {authUser.fullName}</p>
         <p>Select a chat to start messaging</p>
-        <TiMessages className="text-3xl text-center" />
       </div>
     </div>
   );
