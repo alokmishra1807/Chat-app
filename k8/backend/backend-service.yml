@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: backend-app-service
+ namespace: chat-app-backend-ns
+
+spec:
+ selector:
+  app: backend-chat-app
+
+ ports:
+   - protocol: TCP
+     port: 3001 # cluster/servie ip address
+     targetPort: 5001   # ip address of the container
+
