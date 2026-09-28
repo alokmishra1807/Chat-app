@@ -17,10 +17,12 @@ spec:
     spec:
       containers:
       - name: chat-app-backend
-        image: alokmishra773/chat-backend:latest
+        image: alokmishra773/chat-app-backend:latest
         ports:
           - containerPort: 5001
         env:
+          - name: PORT
+            value: "5001"
           - name: MONGO_DB_URI
             valueFrom:
               secretKeyRef:
