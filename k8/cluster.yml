@@ -5,7 +5,4 @@ nodes:
   image: kindest/node:v1.37.0
 - role: worker
   image: kindest/node:v1.37.0
-- role: worker
-  image: kindest/node:v1.37.0
-- role: worker
-  image: kindest/node:v1.37.0  
+

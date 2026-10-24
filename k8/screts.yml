@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: backend-keys
+  namespace: chat-app-ns
+type: Opaque  
+data:
+  uri: bW9uZ29kYjovL21vbmdvZGI6MjcwMTcvQXBwLXl0
+  token: d29mZzBpZXJmOWVyZ3R0MDIzNDQ3NTYzNDY1cmhoanQ=

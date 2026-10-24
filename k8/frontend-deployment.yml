@@ -4,21 +4,21 @@ metadata:
   name: chat-app-deployment
   namespace: chat-app-ns
   labels:
-    app: chat-app
+    app: chat-app-frontend-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: chat-app
+      app: chat-app-frontend
   template:
     metadata:
       labels:
-        app: chat-app
+        app: chat-app-frontend
     spec:
       containers:
       - name: chat-app-frontend
         image: alokmishra773/chat-app-frontend:latest
         ports:
-        - containerPort: 80
-        
+        - containerPort: 3001
+
               

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: chat-frontend  #this is what we have provided in nginx.conf
+ namespace: chat-app-ns
+
+spec:
+ selector:
+  app: chat-app-frontend-deployment
+ 
+ ports:
+   - protocol: TCP
+     port: 2001 # cluster/servie ip address  
+     targetPort: 3001   # ip address of the container

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: mongodb  #this is what we have provided in backend container 
+ namespace: chat-app-ns
+
+spec:
+ selector:
+  app: mongodb-deployment
+ 
+ ports:
+   - protocol: TCP
+     port: 8001 # cluster/servie ip address  
+     targetPort: 27017   # ip address of the container
