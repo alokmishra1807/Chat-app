@@ -6,9 +6,9 @@ metadata:
 
 spec:
  selector:
-  app: mongodb-deployment
+   app: mongodb
  
  ports:
    - protocol: TCP
-     port: 8001 # cluster/servie ip address  
+     port: 27017 # cluster/servie ip address  
      targetPort: 27017   # ip address of the container

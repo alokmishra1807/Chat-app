@@ -6,9 +6,9 @@ metadata:
 
 spec:
  selector:
-  app: chat-app-frontend-deployment
+  app: chat-app-frontend #here we have to write the label provided to the pod that are run by this service.
  
  ports:
    - protocol: TCP
-     port: 2001 # cluster/servie ip address  
-     targetPort: 3001   # ip address of the container
+     port: 3001 # cluster/servie ip address  
+     targetPort: 80   # ip address of the container
