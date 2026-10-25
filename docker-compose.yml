@@ -1,0 +1,39 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb 
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - fullstack-chatapp
+
+  backend:
+    image: alokmishra773/chat-app-backend:latest
+    container_name: chat-backend
+    ports:
+      - "5001:5001"
+    env_file:
+      - ./backend/.env  #replace env.example with actual .env file 
+    depends_on:
+      - mongodb
+    networks:
+      - fullstack-chatapp
+
+  frontend:
+    image: alokmishra773/chat-app-frontend:latest
+    container_name: chat-frontend
+    ports:
+      - "3001:80"
+    depends_on:
+      - backend
+    networks:
+      - fullstack-chatapp
+
+networks:
+  fullstack-chatapp:
+    driver: bridge
+
+volumes:
+  mongo-data:
