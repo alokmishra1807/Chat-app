@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root-app                # Root application name
+  namespace: argocd             # Always in ArgoCD namespace
+spec:
+  project: default              # Can also assign to a Project if needed
+  source:
+    repoURL: https://github.com/alokmishra1807/Chat-app.git   # Repo containing child apps
+    targetRevision: main        # Git branch to track
+    path: k8/app-of-apps   # Path where child app manifests are stored
+  destination:
+    server: <argocd_cluster_server_url>  # Deploying inside the same cluster
+    namespace: argocd             # Applications (CRDs) must live in argocd namespace
+  syncPolicy:
+    automated:
+      prune: true                 # Prune removed child apps
+      selfHeal: true              # Auto-fix drift
