@@ -6,7 +6,7 @@ metadata:
 
 spec:
  selector:
-  app: chat-app-backend
+  app: backend-chat-app
 
  ports:
    - protocol: TCP
