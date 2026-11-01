@@ -19,6 +19,6 @@ spec:
       - name: chat-app-frontend
         image: alokmishra773/chat-app-frontend:latest
         ports:
-        - containerPort: 3001
+        - containerPort: 80
 
               

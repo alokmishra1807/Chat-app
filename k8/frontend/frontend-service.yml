@@ -11,4 +11,4 @@ spec:
  ports:
    - protocol: TCP
      port: 2001 # cluster/servie ip address  
-     targetPort: 3001   # ip address of the container
+     targetPort: 80   # ip address of the container
